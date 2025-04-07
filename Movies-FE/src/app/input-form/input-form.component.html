@@ -1,0 +1,22 @@
+<div class="modal-backdrop">
+    <div class="modal-form">
+      <h2>Add New Movie</h2>
+      <form (submit)="submitMovie($event)">
+        <label>Title:</label>
+        <input type="text" name="title" [(ngModel)]="newMovie.title" required />
+  
+        <label>Description:</label>
+        <textarea name="description" [(ngModel)]="newMovie.description" required></textarea>
+  
+        <label>Movie File:</label>
+        <input type="file" name="movie_file" (change)="onFileChange($event)" required />
+        <button type="submit">Submit</button>
+      </form>
+      <div class="modal-overlay" *ngIf="showDialog">
+        <div class="modal">
+          <p>{{ dialogMessage }}</p>
+          <button (click)="closeDialog()">OK</button>
+        </div>
+      </div>
+    </div>
+</div>

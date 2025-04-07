@@ -1,0 +1,10 @@
+.results {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto new lines */
+    gap: 16px; /* Optional, to add space between items */
+  }
+  
+  .res {
+    flex: 1 1 calc(33.33% - 16px); /* Adjust this to control how many items fit per row */
+    box-sizing: border-box; /* Prevents padding from affecting item width */
+  }

@@ -1,0 +1,11 @@
+<router-outlet>
+<app-search-component></app-search-component>
+<a [routerLink]="'/add'">
+<button class="add-movie-btn" >+ Add Movie</button>
+</a>
+<section class="results">
+    <ng-container class="res" *ngFor="let movie of movieListing">
+        <app-list-item (movieDeleted)="onMovieDeleted($event)" [movie]="movie"></app-list-item>
+    </ng-container>
+</section>
+</router-outlet>

@@ -1,0 +1,30 @@
+<section class="listing-grid">
+  <div class="listing-card" >
+    <a [routerLink]="['/player', movie.id]">
+      <img class="listing-photo" [src]="movie.movie_file" [alt]="movie.title" />
+      <div class="listing-content">
+        <h2 class="listing-heading">{{ movie.title }}</h2>
+        <p class="listing-description">{{ movie.description }}</p>
+        <p class="listing-date">Added: {{ movie.date_added | date: 'mediumDate' }}</p>
+      </div>
+    </a>
+      <!-- Three-dot button for options (Edit/Delete) -->
+      <button class="more-options" (click)="toggleMenu($event)">
+        <i class="fas fa-ellipsis-v"></i>
+      </button>
+
+      <!-- Dropdown menu for actions -->
+      <div class="dropdown-menu" *ngIf="showMenu">
+        <button (click)="editMovie(movie.id)">Edit</button>
+        <button (click)="deleteMovie(movie.id)">Delete</button>
+      </div>
+    
+  </div>
+</section>
+
+<div class="modal-overlay" *ngIf="showDialog">
+  <div class="modal">
+    <p>{{ dialogMessage }}</p>
+    <button (click)="closeDialog()">OK</button>
+  </div>
+</div>

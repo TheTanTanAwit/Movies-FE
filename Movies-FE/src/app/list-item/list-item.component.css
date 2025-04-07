@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #fff;
+    --accent-color: #1e1e1e;
+    --hover-accent: #2a2a2a;
+  }
+  
+  .listing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    padding: 20px;
+  }
+  
+  .listing-card {
+    position: relative;
+    background: var(--accent-color);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .listing-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    background: var(--hover-accent);
+  }
+  
+  .listing-photo {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .listing-content {
+    padding: 16px;
+  }
+  
+  .listing-heading {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+    color: var(--primary-color);
+  }
+  
+  .listing-description {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 8px;
+  }
+  
+  .listing-date {
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  .more-options {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .more-options:hover {
+    color: #007bff;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 30px; /* Adjust the dropdown position */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dropdown-menu button {
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu button:hover {
+    background-color: #f0f0f0;
+  }
