@@ -5,7 +5,7 @@ Make sure you have these installed and running on your machine
 2. [Node](https://nodejs.org/en)
 ## Clone Project
 Clone project with command: <br/>
-`git clone https://github.com/TheTanTanAwit/Movies-FE.git`
+`git clone https://github.com/TheTanTanAwit/Movies-FE.git` <br/>
 After cloning cd into project: <br/>
 `cd Movies-FE` <br/>
 After cloning switch branch to master: <br/>
