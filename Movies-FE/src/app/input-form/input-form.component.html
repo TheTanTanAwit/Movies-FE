@@ -1,22 +1,55 @@
+<h2 class="inputTitle" *ngIf="movieId">Editing Movie</h2>
+<h2 class="inputTitle" *ngIf="!movieId">Upload New Movie</h2>
+
 <div class="modal-backdrop">
-    <div class="modal-form">
-      <h2>Add New Movie</h2>
-      <form (submit)="submitMovie($event)">
-        <label>Title:</label>
-        <input type="text" name="title" [(ngModel)]="newMovie.title" required />
-  
-        <label>Description:</label>
-        <textarea name="description" [(ngModel)]="newMovie.description" required></textarea>
-  
-        <label>Movie File:</label>
-        <input type="file" name="movie_file" (change)="onFileChange($event)" required />
-        <button type="submit">Submit</button>
-      </form>
-      <div class="modal-overlay" *ngIf="showDialog">
-        <div class="modal">
-          <p>{{ dialogMessage }}</p>
-          <button (click)="closeDialog()">OK</button>
-        </div>
+  <div class="modal-form">
+    <form (submit)="submitMovie($event)">
+      <h2 class="form-title">{{ movieId ? 'Edit Movie' : 'Add New Movie' }}</h2>
+
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input
+          id="title"
+          type="text"
+          name="title"
+          [(ngModel)]="newMovie.title"
+          required
+          placeholder="Enter movie title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          [(ngModel)]="newMovie.description"
+          required
+          placeholder="Enter movie description"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="movie_file">Movie File:</label>
+        <input
+          id="movie_file"
+          type="file"
+          name="movie_file"
+          (change)="onFileChange($event)"
+          required
+        />
+      </div>
+
+      <button type="submit" class="submit-btn">
+        {{ movieId ? 'Update Movie' : 'Upload Movie' }}
+      </button>
+    </form>
+
+    <div class="modal-overlay" *ngIf="showDialog">
+      <div class="modal-dialog">
+        <p>{{ dialogMessage }}</p>
+        <button (click)="closeDialog()" class="dialog-btn">OK</button>
       </div>
     </div>
+  </div>
 </div>

@@ -1,10 +1,16 @@
 <router-outlet>
-<app-search-component></app-search-component>
-<a [routerLink]="'/add'">
-<button class="add-movie-btn" >+ Add Movie</button>
-</a>
+    <div class="headers">
+        <div class="left-controls">
+          <a [routerLink]="'/add'">
+            <button class="add-movie-btn">+ Add Movie</button>
+          </a>
+        </div>
+        <div class="right-controls">
+          <app-search-component (searchQuery)="filterResults($event)"></app-search-component>
+        </div>
+      </div>
 <section class="results">
-    <ng-container class="res" *ngFor="let movie of movieListing">
+    <ng-container class="res" *ngFor="let movie of filteredMovies">
         <app-list-item (movieDeleted)="onMovieDeleted($event)" [movie]="movie"></app-list-item>
     </ng-container>
 </section>

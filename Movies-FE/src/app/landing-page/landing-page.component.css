@@ -1,10 +1,49 @@
 .results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center; /* Center items horizontally */
+  padding: 1rem;
+}
+
+.res {
+  flex: 1 1 calc(33.33% - 16px);
+  max-width: calc(33.33% - 16px);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center; /* Center content inside the card if needed */
+}
+
+  .headers {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap onto new lines */
-    gap: 16px; /* Optional, to add space between items */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   
-  .res {
-    flex: 1 1 calc(33.33% - 16px); /* Adjust this to control how many items fit per row */
-    box-sizing: border-box; /* Prevents padding from affecting item width */
+  .add-movie-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .add-movie-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #00408a);
+    transform: scale(1.03);
+  }
+  
+  .left-controls, .right-controls {
+    display: flex;
+    align-items: center;
   }

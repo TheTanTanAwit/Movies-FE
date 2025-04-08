@@ -18,16 +18,33 @@ import { MovieService } from '../movie-service.service';
 export class LandingPageComponent implements OnInit {
   title = 'NotFlix';
   movieListing: Movielisting[] = [];
-
-  constructor(private movieService: MovieService) {} // Inject the MovieService
+  filteredMovies: Movielisting[] = [];
+  constructor(private movieService: MovieService) {
+    
+  } // Inject the MovieService
 
   async ngOnInit(): Promise<void> {
     this.movieListing = await this.movieService.getAllMovies(); // Use the service to fetch movies
-    console.log(this.movieListing);
+    this.filterResults("");
   }
 
   onMovieDeleted(movieId: number): void {
     // Filter out the deleted movie from the list
-    this.movieListing = this.movieListing.filter((movie) => movie.id !== movieId);
+    this.filteredMovies = this.filteredMovies.filter((movie) => movie.id !== movieId);
+    console.log("deleted" + movieId);
+  }
+
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredMovies = this.movieListing
+      return;
+    }
+
+    this.filteredMovies = this.movieListing.filter((movie) =>
+      movie?.title.toLowerCase().includes(text.toLowerCase()),
+    )
+    // this.filteredMovies.forEach(element => {
+    //   console.log(element)
+    // });
   }
 }

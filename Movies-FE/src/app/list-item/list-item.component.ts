@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Movielisting } from '../movielisting';
 import  axios, { AxiosResponse } from 'axios';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-item',
@@ -24,10 +24,11 @@ export class ListItemComponent {
     this.showMenu = !this.showMenu;
   }
 
+  constructor(private router: Router){}
 
   editMovie(movieId: number): void {
     console.log('Editing movie with ID:', movieId);
-    // Add your edit logic here
+    this.router.navigate(['/add', movieId]);
   }
 
   async deleteMovie(movieId: number): Promise<void> {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-component',
@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class SearchComponentComponent {
 
+  @Output() searchQuery = new EventEmitter<string>();
+
+  onButtonClick(query: string) {
+    this.searchQuery.emit(query);
+  }
 }

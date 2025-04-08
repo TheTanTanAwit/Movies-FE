@@ -1,6 +1,6 @@
 <section>
     <form>
-        <input type="text" placeholder="Search by Title" />
-        <button class="primary" type="button">Search</button>
+        <input type="text" placeholder="Search by Title"  #filter/>
+        <button class="primary" type="button" (click)="onButtonClick(filter.value)">Search</button>
     </form>
 </section>
